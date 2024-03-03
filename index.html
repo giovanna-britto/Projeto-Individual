@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Individual</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+    <script src="scenes/jogo.js"></script>
+    <script src="scenes/urso.js"></script>
+    <script src="scenes/fimdejogo.js"></script>
+    <style> body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; } </style>
+</head>
+
+<body>
+    <script>
+        // Definições de Constantes para a Largura e altura da tela do jogo
+        const larguraJogo = 1000;
+        const alturaJogo = 650;
+
+        // Configurações do Jogo
+        const config = {
+            type: Phaser.AUTO,
+            width: larguraJogo,
+            height: alturaJogo,
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: {y: 300},
+                    debug: true
+                }
+            },
+            scene: [Jogo, Urso, Final]
+        };
+
+        // Definições de Constante e Variáveis
+        var game = new Phaser.Game(config);
+        game.scene.start('jogo')
+    </script>
+</body>
+</html>
